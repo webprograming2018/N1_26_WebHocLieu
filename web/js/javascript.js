@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
 //    window.onload = function () {
     var sign = document.createElement("div");
     var body = document.getElementsByTagName("body")[0];
@@ -50,91 +50,31 @@ $(document).ready(function(){
             $(".nav1").css("top", $("header").css("height"));
             current = document.documentElement.scrollTop;
         }
-//        var height = document.body.scrollHeight;
-//            var current = document.documentElement.scrollTop;                
-//        if ((current > (height - 500))) {
-//            console.log(document.documentElement.scrollTop);
-//            if (offset < 31) {
-//                addNews(offset);
-//                offset += 10;
-//            }
-//        }
     });
-    //------------------- đọc bài viết json ---------------------------------------
-    // var xhr = new XMLHttpRequest();
-    // xhr.onreadystatechange = function () {
-    // 	if (this.readyState == 4 && this.status == 200){
-    //                        console.log("doc duoc file");
-    // 		update(xhr.responseText);			
-    // 	}
-    // }
-    // xhr.open("GET","./json/news.json?random="+new Date().getTime());
-    // xhr.send();
-    //--------------------------------------------------doc bai viet sql -----------------
-//	$.ajax({
-//		type : 'POST',
-//		url : 'NewsServlet',
-//		data : {sl : 10,
-//			offset : 0
-//				},
-//		success : update
-//	});
-//}
-//var offset = 10;
-//function addNews(offset){
-//	$.ajax({
-//        type : 'POST',
-//        url : 'NewsServlet',
-//        data : {sl : 10,
-//        offset : offset
-//    	},
-//    success : update
-//        });
-//}
-//function update(json) {
-//	json = json.replace(/\\n/g, "\\n")  
-//               .replace(/\\'/g, "\\'")
-//               .replace(/\\"/g, '\\"')
-//               .replace(/\\&/g, "\\&")
-//               .replace(/\\r/g, "\\r")
-//               .replace(/\\t/g, "\\t")
-//               .replace(/\\b/g, "\\b")
-//               .replace(/\\f/g, "\\f");
-//// remove non-printable and other non-valid JSON chars
-//	json = json.replace(/[\u0000-\u0019]+/g,"");     
-//	console.log(json);
-//	var object = JSON.parse(json);
-//	console.log(object);
-//	for (var i=0; i< object.length; i++){		
-//		var li = document.createElement("li");
-//		var left_news = document.createElement("div");
-//		left_news.className = "left_news";
-//		var a1 = document.createElement("a");	
-//		a1.setAttribute("href","content.jsp?link="+object[i].link);
-//		var img = document.createElement("img");
-//		img.setAttribute("src",object[i].image);
-//		var right_news = document.createElement("div");
-//		right_news.className = "right_news";
-//		var a2 = document.createElement("a");
-//		a2.setAttribute("href","SubContent?link="+object[i].link);
-//		var h2 = document.createElement("h2");
-//		h2.className = "title";
-//		h2.innerHTML = object[i].title;
-//		var time = document.createElement("p");
-//		time.innerHTML = object[i].time;
-//		var content = document.createElement("p");
-//		content.innerHTML = object[i].content;
-//		a1.appendChild(img);
-//		left_news.appendChild(a1);
-//		li.appendChild(left_news);
-//		a2.appendChild(h2);
-//		right_news.appendChild(a2);
-//		right_news.appendChild(time);
-//		right_news.appendChild(content);
-//		li.appendChild(right_news);
-//		var ul = document.getElementById("listNews");
-//		ul.appendChild(li);
-//	}
-//	
-//}
+
+    $('#sign form').submit(function () {
+        return false;
+    });
+//
+
+
+    $("#ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_btnDangNhap").click(function () {
+        $.ajax({
+            type: 'POST',
+            url: 'Login',
+            data: {user: $('#ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_txtTaiKhoa').val(),
+                pass: $('#ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_txtMatKhau').val()
+            },
+            success: function (res) {
+                console.log(res);
+                if(res!== "false"){
+                    location.reload();
+                }else {
+                    alert('Sai mật khẩu hoặc tài khoản');
+                }
+                return false;
+            }
+        });
+    });
+
 });

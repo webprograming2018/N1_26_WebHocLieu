@@ -1,4 +1,4 @@
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 
     <div id="wrap" class="wrap">
         <main>
@@ -15,4 +15,4 @@
         </main>
     </div>
     <script type="text/javascript" src="./home/home.js"></script>
-<jsp:include page="../footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
