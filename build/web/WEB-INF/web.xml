@@ -30,6 +30,16 @@
         <servlet-name>SubContent</servlet-name>
         <url-pattern>/SubContent</url-pattern>
     </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>StudyWebSV</servlet-name>
+        <servlet-class>servlet.StudyWebServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudyWebSV</servlet-name>
+        <url-pattern>/StudyWebSV</url-pattern>
+    </servlet-mapping>
 
         
 <!--    <servlet>
