@@ -110,7 +110,7 @@ function update(json) {
 		var left_news = document.createElement("div");
 		left_news.className = "left_news";
 		var a1 = document.createElement("a");	
-		a1.setAttribute("href","content.jsp?link="+object[i].link);
+		a1.setAttribute("href","SubContent?link="+object[i].link);
 		var img = document.createElement("img");
 		img.setAttribute("src",object[i].image);
 		var right_news = document.createElement("div");
