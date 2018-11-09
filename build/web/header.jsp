@@ -6,6 +6,9 @@
         <title>Header</title>
         <!--<link rel="stylesheet" type="text/css" href="../header.css">-->
         <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+              crossorigin="anonymous">
 
 
         <script type="text/javascript" src="./js/jquery.js"></script>
@@ -15,18 +18,16 @@
         <%@page import="javax.servlet.http.HttpSession" %>
         <%  int i; // i = 1 la da dang nhap, i = 0 la chua dang nhap
             session = request.getSession();
-            if (session.isNew()){          
+            if (session.isNew()) {
                 session.setAttribute("user", "");
                 session.setAttribute("pass", "");
                 i = 0;
-            }
-            else{
+            } else {
                 String user = session.getAttribute("user").toString();
                 String pass = session.getAttribute("pass").toString();
-                if (user.equals("")||pass.equals("")){
+                if (user.equals("") || pass.equals("")) {
                     i = 0;
-                }
-                else{
+                } else {
                     i = 1;
                 }
             }
@@ -34,10 +35,9 @@
         <header id="header">
             <div class ="wrap">
                 <div id="logo"></div><% //
-                    if (i == 0){%>
+                    if (i == 0) {%>
                 <div id="profile" class="text">Sign In</div>
-                <% }
-                    else{%>
+                <% } else {%>
                 <div id='admin'></div>
                 <% }
                 %>
@@ -51,7 +51,7 @@
             <nav id="nav" class="nav2">
                 <ul>
                     <li title="Home">
-                        <a href="">HOME</a>
+                        <a href="home">HOME</a>
                     </li>
                     <li title="study process">
                         <a>Study Process</a>
@@ -63,6 +63,9 @@
                     </li>
                     <li title="library">
                         <a href="library.html">Library</a>
+                    </li>
+                    <li>
+                        <a href ='viewwork'>View Work</a>
                     </li>
                     <li title="profile">
                         <a href="profile.html">Profile</a>

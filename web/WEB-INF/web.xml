@@ -13,6 +13,17 @@
     
     
     <servlet>
+        <servlet-name>viewWork</servlet-name>
+        <jsp-file>/viewWork/viewWork.jsp</jsp-file>
+    </servlet>
+    <!--mapping-->
+    <servlet-mapping>
+        <servlet-name>viewWork</servlet-name>
+        <url-pattern>/viewwork</url-pattern>   
+    </servlet-mapping>
+    
+    
+    <servlet>
         <servlet-name>NewsServlet</servlet-name>
         <servlet-class>servlet.NewsServlet</servlet-class>
     </servlet>
