@@ -68,7 +68,11 @@
                     <li title="study process">
                         <a>Study Process</a>
                         <ul id="case_study">
+                            <% if (i == 1) {%>
                             <li title="study C"><a href='studyweb'>STUDY WEB</a></li>
+                                <%} else {%>
+                            <li title="study C"><a href='home'>STUDY WEB</a></li>
+                                <%}%>
                             <li title="study java"><a href="#">STUDY JAVA</a></li>
                             <li title="study javascript"><a href="#">STUDY JAVASCRIPT</a></li>
                         </ul>
@@ -76,9 +80,11 @@
                     <li title="library">
                         <a href="library">Library</a>
                     </li>
-                    <li>
-                        <a href ='viewwork'>View Work</a>
-                    </li>
+                    <% if (i == 1) {%>
+                    <li><a href ='viewwork'>View Work</a></li>
+                        <%} else {%>
+                    <li><a href ='home'>View Work</a></li>
+                        <%}%>
                     <li title="profile">
                         <a href="profile.html">Profile</a>
                     </li>
