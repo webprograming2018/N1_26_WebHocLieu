@@ -9,16 +9,6 @@ $(document).ready(function () {
 
     function update(json) {
         console.log(json);
-//        json = json.replace(/\\n/g, "\\n")
-//                .replace(/\\'/g, "\\'")
-//                .replace(/\\"/g, '\\"')
-//                .replace(/\\&/g, "\\&")
-//                .replace(/\\r/g, "\\r")
-//                .replace(/\\t/g, "\\t")
-//                .replace(/\\b/g, "\\b")
-//                .replace(/\\f/g, "\\f");
-// remove non-printable and other non-valid JSON chars
-//        json = json.replace(/[\u0000-\u0019]+/g, "");
         jsonObject = JSON.parse(json);
         var content = document.createElement("div");
         content.innerHTML = jsonObject[0].noiDung;
