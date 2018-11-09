@@ -11,6 +11,16 @@
         <url-pattern>/studyweb</url-pattern>   
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>library</servlet-name>
+        <jsp-file>/library/library.jsp</jsp-file>
+    </servlet>
+    <!--mapping-->
+    <servlet-mapping>
+        <servlet-name>library</servlet-name>
+        <url-pattern>/library</url-pattern>   
+    </servlet-mapping>
+    
     
     <servlet>
         <servlet-name>viewWork</servlet-name>

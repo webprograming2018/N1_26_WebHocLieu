@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Header</title>
+        <title>PTIT STUDY</title>
         <!--<link rel="stylesheet" type="text/css" href="../header.css">-->
         <link rel="stylesheet" type="text/css" href="./css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -70,7 +70,7 @@
                         </ul>
                     </li>
                     <li title="library">
-                        <a href="library.html">Library</a>
+                        <a href="library">Library</a>
                     </li>
                     <li>
                         <a href ='viewwork'>View Work</a>
