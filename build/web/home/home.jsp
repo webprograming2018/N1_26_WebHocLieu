@@ -10,7 +10,7 @@
                 </div>
             </article>
             <aside>
-                this is aside
+                <iframe src="https://calendar.google.com/calendar/embed?src=be2kevkq2cj5tgc9tibfiju6ds%40group.calendar.google.com&ctz=Asia%2FSaigon" style="border: 0" width="200" height="200" frameborder="0" scrolling="no"></iframe>
             </aside>				
         </main>
     </div>
