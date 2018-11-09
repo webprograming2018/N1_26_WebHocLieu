@@ -35,7 +35,7 @@
                                             <thead>
                                                 <tr>
                                                     <th id="group" class="group" rowspan="2">
-                                                        <p>NH</p>
+                                                        <p>NH<i class="fas fa-sort"></i></p>
                                                     </th>
                                                     <th class="member" colspan="2">
                                                         <p>Thành viên</p>
@@ -55,10 +55,10 @@
                                                 </tr>
                                                 <tr>
                                                     <th id="studentName" class="studentName">
-                                                        <p>H? tên<i class="fas fa-sort"></i></p>
+                                                        <p>H? tên</p>
                                                     </th>
                                                     <th id="studentCode" class="studentCode">
-                                                        <p>Mã SV<i class="fas fa-sort"></i></p>
+                                                        <p>Mã SV</p>
                                                     </th>
                                                     <th class='require one'>
                                                         <p>TC1</p>

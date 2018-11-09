@@ -45,6 +45,7 @@ header:after{
     text-align: center;
     margin-right: 50px;
     margin-top: 30px;
+    display: flex;
 }
 #text_search{
     width: 300px;
@@ -61,12 +62,20 @@ header:after{
     border: none;
     cursor: pointer;
 }
-#profile{
+#profile, #signout, #admin{
     float: right;
     color: white;
     margin-top: 30px;
     cursor: pointer;
     background: #ffa200;
+}
+#admin{
+    float: right;
+    color: white;
+    margin-top: 30px;
+    margin-left: 10px; 
+    cursor: pointer;
+    /*background: #ffa200;*/
 }
 .wrap{
     width: 960px;
@@ -478,13 +487,6 @@ th {
     width: 45px;
 }
 
-th.group p::after {
-    content: "\f0dc";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 12px;
-}
-
 .studentName p, .studentName input {
     display: block;
     text-align: left;
@@ -522,7 +524,7 @@ table.search-container {
 input[type="text"] {
     width: 100%;
     padding: 0;
-    margin: 0;
+    margin-right: 10px;
 }
 
 .search-container th {

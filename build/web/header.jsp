@@ -17,15 +17,21 @@
     <body>
         <%@page import="javax.servlet.http.HttpSession" %>
         <%  int i; // i = 1 la da dang nhap, i = 0 la chua dang nhap
+//            String signout = request.getParameter("signout").toString();
+//            if (signout==null){
+//                signout = "";
+//            }
+            String user = null;
             session = request.getSession();
+//            if (signout.equals("ok")){
+//                session.setAttribute("user", "");
+//            }
             if (session.isNew()) {
                 session.setAttribute("user", "");
-                session.setAttribute("pass", "");
                 i = 0;
             } else {
-                String user = session.getAttribute("user").toString();
-                String pass = session.getAttribute("pass").toString();
-                if (user.equals("") || pass.equals("")) {
+                user = session.getAttribute("user").toString();
+                if (user.equals("")) {
                     i = 0;
                 } else {
                     i = 1;
@@ -36,9 +42,18 @@
             <div class ="wrap">
                 <div id="logo"></div><% //
                     if (i == 0) {%>
-                <div id="profile" class="text">Sign In</div>
+                <div id="profile" class="text">Sign In<%= request.getParameter("signout")%></div>
                 <% } else {%>
-                <div id='admin'></div>
+                <div id='admin' class="text">
+                    <%=user%><%= request.getParameter("signout")%>
+                </div>
+                <div id="signout" class="text">Sign out</div>
+<!--                <scrip>
+                    function signout(){
+                    alert('a');
+                    }
+                </scrip>-->
+
                 <% }
                 %>
                 <div id="search_area">

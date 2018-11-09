@@ -26,22 +26,22 @@ $(document).ready(function () {
     //Object data 
     function Data(data) {
         this.Data = data;
-        // this.sortUP = function (sortby) {
-        //     this.Data.sort(function (a, b) {
-        //         if (sortby === "one" || sortby === "two" || sortby === "three" || sortby === "four" || sortby === "five" || sortby === "mark") {
-        //             return a[sortby] - b[sortby];
-        //         } else
-        //             return a[sortby].localeCompare(b[sortby]);
-        //     });
-        // }
-        // this.sortDown = function (sortby) {
-        //     this.Data.sort(function (a, b) {
-        //         if (sortby === "one" || sortby === "two" || sortby === "three" || sortby === "four" || sortby === "five" || sortby === "mark") {
-        //             return b[sortby] - a[sortby];
-        //         } else
-        //             return b[sortby].localeCompare(a[sortby]);
-        //     });
-        // }
+         this.sortUP = function (sortby) {
+             this.Data.sort(function (a, b) {
+                 if (sortby === "group") {
+                     return a[sortby] - b[sortby];
+                 } else
+                     return a[sortby].localeCompare(b[sortby]);
+             });
+         }
+        this.sortDown = function (sortby) {
+            this.Data.sort(function (a, b) {
+                if (sortby === "group") {
+                    return b[sortby] - a[sortby];
+                } else
+                    return b[sortby].localeCompare(a[sortby]);
+            });
+        }
         this.show = () => {
             table.empty();
             $.each(this.Data, function (index, value) {
@@ -129,36 +129,38 @@ $(document).ready(function () {
     })
 
 
-    //sort data=======================================================
-    // $(".head-table th").click(function (e) {
-    //     if ($(this).hasClass("sort")) {
-    //         if ($(this).hasClass("down")) {
-    //             $(this).removeClass("down");
-    //             $(this).addClass("up");
-    //             $(this).find("i").removeClass();
-    //             $(this).find("i").addClass("fas fa-long-arrow-alt-up");
-    //             data.sortUP($(this).attr('id'));
-    //         } else {
-    //             $(this).removeClass("up");
-    //             $(this).addClass("down");
-    //             $(this).find("i").removeClass();
-    //             $(this).find("i").addClass("fas fa-long-arrow-alt-down");
-    //             data.sortDown($(this).attr('id'));
-    //         }
-    //     } else {
-    //         $(".head-table th").removeClass("sort");
-    //         $(".head-table th").removeClass("down");
-    //         $(".head-table th").removeClass("up");
-    //         $(".head-table th").find("i").removeClass();
-    //         $(".head-table th").find("i").addClass("fas fa-sort");
-    //         $(this).addClass("sort");
-    //         $(this).addClass("up");
-    //         $(this).find("i").removeClass();
-    //         $(this).find("i").addClass("fas fa-long-arrow-alt-up");
-    //         data.sortUP($(this).attr('id'));
-    //     }
-    //     data.show();
-    // })
+//    sort data=======================================================
+     $(".table-body th").click(function (e) {
+         if ($(this).hasClass("sort")) {
+             console.log($(this))
+             if ($(this).hasClass("down")) {
+                 $(this).removeClass("down");
+                 $(this).addClass("up");
+                 $(this).find("i").removeClass();
+                 $(this).find("i").addClass("fas fa-long-arrow-alt-up");
+                 data.sortUP($(this).attr('id'));
+             } else {
+                 $(this).removeClass("up");
+                 $(this).addClass("down");
+                 $(this).find("i").removeClass();
+                 $(this).find("i").addClass("fas fa-long-arrow-alt-down");
+                 data.sortDown($(this).attr('id'));
+             }
+         } else {
+             console.log($(this))
+             $(".head-table th").removeClass("sort");
+             $(".head-table th").removeClass("down");
+             $(".head-table th").removeClass("up");
+             $(".head-table th").find("i").removeClass();
+             $(".head-table th").find("i").addClass("fas fa-sort");
+             $(this).addClass("sort");
+             $(this).addClass("up");
+             $(this).find("i").removeClass();
+             $(this).find("i").addClass("fas fa-long-arrow-alt-up");
+             data.sortUP($(this).attr('id'));
+         }
+         data.show();
+     })
 
     //show hide col table
     $('input[type="checkbox"]').change(function () {

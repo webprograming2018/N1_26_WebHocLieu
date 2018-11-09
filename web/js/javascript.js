@@ -67,14 +67,34 @@ $(document).ready(function () {
             },
             success: function (res) {
                 console.log(res);
-                if(res!== "false"){
+                if (res !== "false") {
                     location.reload();
-                }else {
+                } else {
                     alert('Sai mật khẩu hoặc tài khoản');
                 }
                 return false;
             }
         });
     });
+
+    $('#signout').on(click, function () {
+        alert('sa');
+    })
+//    click(function () {
+//        alert('sa');
+//        $.ajax({
+//            type: 'GET',
+//            url: home,
+//            data: {signout: 'ok'
+//            },
+//            success: function (res) {
+//                location.reload();
+//            }
+//        });
+//    });
+
+    function signout() {
+        alert('a');
+    }
 
 });
