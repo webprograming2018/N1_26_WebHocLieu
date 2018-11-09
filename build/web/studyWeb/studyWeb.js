@@ -12,10 +12,26 @@ $(document).ready(function () {
         jsonObject = JSON.parse(json);
         var content = document.createElement("div");
         content.innerHTML = jsonObject[0].noiDung;
-        var code = document.createElement("div");
-        code.innerHTML = jsonObject[0].code;
+        var tenBai = document.createElement("div");
+        tenBai.innerHTML = jsonObject[0].tenBai;
         $("article:first").append(content);
-        $("aside:first").append(code);
+        $("aside:first").append(tenBai);
+        $.ajax({
+            type: 'GET',
+            url: jsonObject[0].code,
+            success: function (data) {
+                console.log(data);
+                var code = $("<div id='editor' style='height:500px'></div>").text(data);
+//                code.setAtrribute('id','editor');
+//                code.innerHTML = data;
+//$("aside:first")
+                console.log(code);
+                $("article:first").append(code);
+                var editor = ace.edit("editor");
+                editor.setTheme("ace/theme/dracula");
+                editor.session.setMode("ace/mode/java");
+            }
+        });
 //    var listA = new Array();
 //    for (var i = 0; i < jsonObject.length; i++){
 //        var a = document.createElement("a");
@@ -30,5 +46,9 @@ $(document).ready(function () {
 //        $("aside:first").append(br);
 //    }
     }
+
+//    var beautify = ace.require("ace/ext/beautify");
+
+//    beautify.beautify(editor.session);
     var jsonObject;
 });
