@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -15,6 +16,8 @@ import java.net.CookieManager;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -91,19 +94,29 @@ public class Qldt {
         wr.close();
         
         
-        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
         String inputLine;
         StringBuffer response = new StringBuffer();
 
         while ((inputLine = in.readLine()) != null) {
             response.append(inputLine);
         }
+        // 
+//        BufferedInputStream bif = new BufferedInputStream(conn.getInputStream());
+//        byte[] buffer = new byte[1024];
+//        String response = "";
+//        int k = bif.read(buffer, 0, 1024);
+//        while(k!=-1){
+//            response += new String(buffer, 0, buffer.length, "UTF-8");
+//            buffer = new byte[1024];
+//            k = bif.read(buffer, 0, 1024);
+//        }
+//        bif.close();
         in.close();
-
+        
         Document doc = Jsoup.parse(response.toString());
 
-        String name = doc.getElementById("ctl00_Header1_ucLogout_lblNguoiDung").text();
-
+        String name = doc.getElementById("ctl00_Header1_ucLogout_lblNguoiDung").text();        
         name = name.replace("Chào ", "");
 
         Pattern pattern = Pattern.compile("\\((.+?)\\)");

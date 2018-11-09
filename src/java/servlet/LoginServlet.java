@@ -38,6 +38,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
 //        response.getWriter().write("oki");
 //        RequestDispatcher rd = request.getRequestDispatcher("home");
@@ -74,6 +76,7 @@ public class LoginServlet extends HttpServlet {
         if (!"".equals(name)) {
             session.setAttribute("user", user);
             session.setAttribute("name", name);
+            System.out.println(name);
             response.getWriter().write(name);
         } else {
             session.setAttribute("user", "");

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +11,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
               crossorigin="anonymous">
 
-        
+
         <!--<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>-->
         <meta name="google-signin-client_id" content="785882447208-cnnkdb3q86glg81ftiil2tdovtugsqrg.apps.googleusercontent.com">
 
@@ -18,7 +19,7 @@
         <script type="text/javascript" src="./js/javascript.js"></script>
     </head>
     <body>
-        <%@page import="javax.servlet.http.HttpSession" %>
+        <%@page import="javax.servlet.http.HttpSession" %>        
         <%  int i; // i = 1 la da dang nhap, i = 0 la chua dang nhap
             String user = null;
             session = request.getSession();
@@ -44,11 +45,11 @@
                     <%=session.getAttribute("name").toString()%>
                 </div>
                 <div id="signout" class="text">Sign out</div>
-<!--                <scrip>
-                    function signout(){
-                    alert('a');
-                    }
-                </scrip>-->
+                <!--                <scrip>
+                                    function signout(){
+                                    alert('a');
+                                    }
+                                </scrip>-->
 
                 <% }
                 %>
