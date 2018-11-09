@@ -17,15 +17,8 @@
     <body>
         <%@page import="javax.servlet.http.HttpSession" %>
         <%  int i; // i = 1 la da dang nhap, i = 0 la chua dang nhap
-//            String signout = request.getParameter("signout").toString();
-//            if (signout==null){
-//                signout = "";
-//            }
             String user = null;
             session = request.getSession();
-//            if (signout.equals("ok")){
-//                session.setAttribute("user", "");
-//            }
             if (session.isNew()) {
                 session.setAttribute("user", "");
                 i = 0;
@@ -42,10 +35,10 @@
             <div class ="wrap">
                 <div id="logo"></div><% //
                     if (i == 0) {%>
-                <div id="profile" class="text">Sign In<%= request.getParameter("signout")%></div>
+                <div id="profile" class="text">Sign In</div>
                 <% } else {%>
                 <div id='admin' class="text">
-                    <%=user%><%= request.getParameter("signout")%>
+                    <%=session.getAttribute("name").toString()%>
                 </div>
                 <div id="signout" class="text">Sign out</div>
 <!--                <scrip>

@@ -132,7 +132,7 @@ $(document).ready(function () {
 //    sort data=======================================================
      $(".table-body th").click(function (e) {
          if ($(this).hasClass("sort")) {
-             console.log($(this))
+//             console.log($(this))
              if ($(this).hasClass("down")) {
                  $(this).removeClass("down");
                  $(this).addClass("up");
@@ -147,7 +147,7 @@ $(document).ready(function () {
                  data.sortDown($(this).attr('id'));
              }
          } else {
-             console.log($(this))
+//             console.log($(this))
              $(".head-table th").removeClass("sort");
              $(".head-table th").removeClass("down");
              $(".head-table th").removeClass("up");

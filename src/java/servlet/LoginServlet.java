@@ -26,6 +26,13 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        String signout = request.getParameter("signout");
+        if (signout.equals("ok")) {
+            session.setAttribute("user", "");
+            session.setAttribute("pass", "");
+            response.getWriter().write("ok");
+        }
     }
 
     @Override
@@ -37,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 //        rd.forward(request, response);
         if (session.isNew()) {
             session.setAttribute("user", "");
-            session.setAttribute("pass", "");
+            session.setAttribute("name", "");
 //            response.getWriter().write("new");
         }
 ////            else{
@@ -66,11 +73,11 @@ public class LoginServlet extends HttpServlet {
         }
         if (!"".equals(name)) {
             session.setAttribute("user", user);
-            session.setAttribute("pass", pass);
+            session.setAttribute("name", name);
             response.getWriter().write(name);
         } else {
             session.setAttribute("user", "");
-            session.setAttribute("pass", "");
+            session.setAttribute("name", "");
             response.getWriter().write("false");
         }
     }

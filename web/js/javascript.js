@@ -12,26 +12,61 @@ $(document).ready(function () {
         body.removeChild(this);
         wrap.removeChild(sign);
     });
+
+    $('#signout').on('click', function () {
+//        alert('sa');
+        $.ajax({
+            type: 'GET',
+            url: 'Login',
+            data: {signout: 'ok'
+            },
+            success: function (res) {
+                console.log(res);
+                if (res === 'ok') {
+                    location.reload();
+                }
+            }
+        });
+    })
+//    click(function () {
+//        alert('sa');
+//        $.ajax({
+//            type: 'GET',
+//            url: home,
+//            data: {signout: 'ok'
+//            },
+//            success: function (res) {
+//                location.reload();
+//            }
+//        });
+//    });
+
     //--------show hide popup sign in ------------------------------------------//
-    var profile = document.getElementById("profile");
-    profile.addEventListener("click", function (e) {
-        $("#sign").css({"z-index": "100", "display": "block"});
-        $("#sign").animate({
-            "opacity": "1"
-        }, 500);
-    });
-    $('#sign').on('click', function (e) {
-        if (e.target !== this)
-            return;
+    var profile = $("#profile");
 
-        $('#sign').animate({
-            opacity: "0"
-        }, 500);
-        setTimeout(() => {
-            $("#sign").css({"z-index": "0", "display": "none"});
-        }, 500);
+    if (profile) {
+        profile.on("click", function (e) {
+            $("#sign").css({"z-index": "100", "display": "block"});
+            $("#sign").animate({
+                "opacity": "1"
+            }, 500);
+        });
+        $('#sign').on('click', function (e) {
+            if (e.target !== this)
+                return;
 
-    });
+            $('#sign').animate({
+                opacity: "0"
+            }, 500);
+            setTimeout(() => {
+                $("#sign").css({"z-index": "0", "display": "none"});
+            }, 500);
+
+        });
+    }
+
+
+
     //------------------end show hide pupop sign in-----------------------------------//
     var nav = document.getElementById("nav");
     var current = document.documentElement.scrollTop;
@@ -58,6 +93,7 @@ $(document).ready(function () {
 //
 
 
+
     $("#ctl00_ContentPlaceHolder1_ctl00_ucDangNhap_btnDangNhap").click(function () {
         $.ajax({
             type: 'POST',
@@ -77,24 +113,6 @@ $(document).ready(function () {
         });
     });
 
-    $('#signout').on(click, function () {
-        alert('sa');
-    })
-//    click(function () {
-//        alert('sa');
-//        $.ajax({
-//            type: 'GET',
-//            url: home,
-//            data: {signout: 'ok'
-//            },
-//            success: function (res) {
-//                location.reload();
-//            }
-//        });
-//    });
 
-    function signout() {
-        alert('a');
-    }
 
 });
