@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
               crossorigin="anonymous">
 
+        
+        <!--<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>-->
+        <meta name="google-signin-client_id" content="785882447208-cnnkdb3q86glg81ftiil2tdovtugsqrg.apps.googleusercontent.com">
 
         <script type="text/javascript" src="./js/jquery.js"></script>
         <script type="text/javascript" src="./js/javascript.js"></script>
