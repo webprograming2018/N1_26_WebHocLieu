@@ -74,7 +74,7 @@ $(document).ready(function () {
 	$.ajax({
 		type : 'POST',
 		url : 'NewsServlet',
-		data : {sl : 20,
+		data : {sl : 30,
 			offset : 0
 				},
 		success : update

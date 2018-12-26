@@ -117,7 +117,7 @@ public class Qldt {
         Document doc = Jsoup.parse(response.toString());
 
         String name = doc.getElementById("ctl00_Header1_ucLogout_lblNguoiDung").text();        
-        name = name.replace("Chào ", "");
+        name = name.replace("Chào bạn ", "");
 
         Pattern pattern = Pattern.compile("\\((.+?)\\)");
         Matcher matcher = pattern.matcher(name);

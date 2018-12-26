@@ -33,7 +33,11 @@ public class NewsServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         int sl = Integer.parseInt(request.getParameter("sl"));
         int offset = Integer.parseInt(request.getParameter("offset"));
-        ArrayList<News> listNews = new NewsDAO("LapTrinhWeb", "sa", "1").select(offset, sl);
+        ArrayList<News> listNews = new ArrayList<>();
+        listNews = new News().DataToNews();
+        NewsDAO newsDao = new NewsDAO("LapTrinhWeb", "sa", "1");
+        newsDao.insert(listNews);
+        listNews = newsDao.select(offset, sl);
         PrintWriter pw = response.getWriter();
         pw.write(new News().newsToJson(listNews));
     }
