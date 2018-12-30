@@ -1,7 +1,14 @@
+@font-face {
+font-family: Helvetica;
+src:url(‘http://localhost:8084/LTW/font/Helvetica Neue.tff’) format(‘truetype’);
+}
+
 *{
     margin: 0;
     padding: 0;
+    font-family: Helvetica;
 }
+
 body{
     background: #4c7677;
 }
@@ -119,7 +126,7 @@ nav ul{
 }
 nav ul li{
     list-style-type: none;
-    padding: 10px 39px;
+    padding: 10px 35px;
     height: 30px;
     cursor: pointer;
     /*position: absolute;*/
@@ -132,6 +139,9 @@ nav > ul > li{
     margin-left: -5px;
     display: inline-block;
     position: relative;
+}
+nav > ul > li:last-child{
+    border-right: none;
 }
 nav > ul > li:first-child{
     margin-left: 0;
@@ -171,7 +181,7 @@ article{
     flex: 3;
     margin-right: 30px;
     padding: 10px;
-    background: rgba(250,250,250,0.5);
+    background: white;
 }
 #news{
     /*width: 960px;*/
@@ -529,4 +539,21 @@ input[type="text"] {
 
 .search-container th {
     padding: 0;
+}
+#listNews li:hover .title{
+    color: #054f56;
+}
+.time{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #12316b;
+}
+#case_study li a {
+    font-size: 17px;
+    line-height: 15px;
+}
+#case_study li{
+    padding: 10px 10px;
+    width: 300px;
 }

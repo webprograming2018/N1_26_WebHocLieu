@@ -47,6 +47,7 @@ public class LoginServlet extends HttpServlet {
         if (session.isNew()) {
             session.setAttribute("user", "");
             session.setAttribute("name", "");
+            session.setAttribute("pass", "");
 //            response.getWriter().write("new");
         }
 ////            else{
@@ -69,6 +70,8 @@ public class LoginServlet extends HttpServlet {
         String name = "";
         try {
             name = http.sendPost(defaultQLDT, postParams);
+            String[] listMa = new String[10];
+            http.getMonHoc(listMa);
         } catch (Exception ex) {
             ex.printStackTrace();
             response.getWriter().write(ex.toString());
@@ -76,6 +79,7 @@ public class LoginServlet extends HttpServlet {
         if (!"".equals(name)) {
             session.setAttribute("user", user);
             session.setAttribute("name", name);
+            session.setAttribute("pass", pass);
             System.out.println(name);
             response.getWriter().write(name);
         } else {

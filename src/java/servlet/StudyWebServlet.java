@@ -28,11 +28,16 @@ public class StudyWebServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setCharacterEncoding("UTF-8");
         ArrayList<StudyWeb> listStudyWeb = new ArrayList<>();
-        listStudyWeb = new StudyDAO("LapTrinhWeb", "sa", "1").select();
-        String json = new StudyWeb().studyWebToJson(listStudyWeb);
-        PrintWriter pw = response.getWriter();
-        pw.write(json);    
-        System.out.println(json);
+        String maMonHoc = request.getParameter("id");
+        System.out.println(maMonHoc);
+        listStudyWeb = new StudyDAO("LapTrinhWeb", "sa", "1").select(maMonHoc);
+//        String json = new StudyWeb().studyWebToJson(listStudyWeb);
+        System.out.println(listStudyWeb.size());
+        response.getWriter().write(String.valueOf(listStudyWeb.size()));
+//        PrintWriter pw = response.getWriter();
+////        pw.write(json);    
+//        pw.write(listStudyWeb.size());
+//        System.out.println(json);
     }
 
   

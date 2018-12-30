@@ -121,8 +121,10 @@ function update(json) {
 		h2.className = "title";
 		h2.innerHTML = object[i].title;
 		var time = document.createElement("p");
+                time.setAttribute("class","time");
 		time.innerHTML = object[i].time;
 		var content = document.createElement("p");
+                content.setAttribute("class","content");
 		content.innerHTML = object[i].content;
 		a1.appendChild(img);
 		left_news.appendChild(a1);

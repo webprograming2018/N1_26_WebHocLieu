@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+ 
+<ul id="LoadListCate">
+    <li class="shownews">
+        <link tag="a" attribute="href"></link>
+        <img tag="img" attribute="src"></img>
+        <title class="kscliw-ava" attribute="title"></title>
+        <content class="knswli-sapo" content="text"></content>
+    </li>
+</ul>

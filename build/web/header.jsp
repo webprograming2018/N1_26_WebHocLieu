@@ -1,3 +1,7 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.net.CookieManager"%>
+<%@page import="java.net.CookieHandler"%>
+<%@page import="model.Qldt"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,16 +26,23 @@
         <%@page import="javax.servlet.http.HttpSession" %>        
         <%  int i; // i = 1 la da dang nhap, i = 0 la chua dang nhap
             String user = null;
+            String pass = null;
             session = request.getSession();
             if (session.isNew()) {
                 session.setAttribute("user", "");
                 i = 0;
             } else {
-                user = session.getAttribute("user").toString();
-                if (user.equals("")) {
+                try {
+                    user = session.getAttribute("user").toString();
+                    pass = session.getAttribute("pass").toString();
+                    if (user.equals("")) {
+                        i = 0;
+                    } else {
+                        i = 1;
+                    }
+                } catch (Exception e) {
                     i = 0;
-                } else {
-                    i = 1;
+                    session.setAttribute("user", "");
                 }
             }
         %>
@@ -68,13 +79,40 @@
                     <li title="study process">
                         <a>Study Process</a>
                         <ul id="case_study">
-                            <% if (i == 1) {%>
-                            <li title="study C"><a href='studyweb'>STUDY WEB</a></li>
-                                <%} else {%>
-                            <li title="study C"><a href='home'>STUDY WEB</a></li>
-                                <%}%>
-                            <li title="study java"><a href="#">STUDY JAVA</a></li>
-                            <li title="study javascript"><a href="#">STUDY JAVASCRIPT</a></li>
+                            <% if (i == 1) {
+                                    String mainQLDT = "http://qldt.ptit.edu.vn/";
+                                    String defaultQLDT = "http://qldt.ptit.edu.vn/default.aspx";
+
+                                    Qldt http = new Qldt();
+
+                                    CookieHandler.setDefault(new CookieManager());
+
+                                    try {
+                                        http.GetCookie(mainQLDT);
+                                    } catch (Exception ex) {
+                                        ex.printStackTrace();
+                                    }
+                                    String postParams = http.getFormParams(user, pass);
+                                    String name = "";
+                                    ArrayList<String> listMH = new ArrayList<String>();
+                                    String[] listMa = new String[10];
+                                    try {
+                                        name = http.sendPost(defaultQLDT, postParams);
+                                        listMH = http.getMonHoc(listMa);
+                                    } catch (Exception ex) {
+                                        ex.printStackTrace();
+                                        response.getWriter().write(ex.toString());
+                                    }
+                                    for (int j =0; j < listMH.size(); j++){
+                                        String tmp = listMH.get(j);
+                            %>
+
+                            <li title="<%=tmp%>"><a href='studyweb?id=<%=listMa[j]%>&bai=bai1'><%=tmp%></a></li>
+                                <%}} else {%>
+                            <!--<li title="study C"><a href='home'>STUDY WEB</a></li>-->
+                            <%}%>
+                            <!--<li title="study java"><a href="#">STUDY JAVA</a></li>-->
+                            <!--<li title="study javascript"><a href="#">STUDY JAVASCRIPT</a></li>-->
                         </ul>
                     </li>
                     <li title="library">

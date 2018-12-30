@@ -20,4 +20,23 @@ h2{
 }
 h1{
     font-size: 2.5em;
+    color: #054f56;
+}
+p{
+    padding: 10px 0;
+    line-height: 30px;
+    font-size: 1.25em;
+}
+.link-content-footer a{
+    font-size: 1.5em;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+}
+.link-content-footer{
+    margin-top: 30px;
+}
+.link-content-footer a:hover{
+    color: #054f56;
 }

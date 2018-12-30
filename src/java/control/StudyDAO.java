@@ -74,10 +74,10 @@ public class StudyDAO {
             ex.printStackTrace();
         }
     }
-    public ArrayList<StudyWeb> select (){
+    public ArrayList<StudyWeb> select (String maMonHoc){
         ArrayList<StudyWeb> listStudyWeb = new ArrayList<>();        
         try {
-            String query = "SELECT * FROM dbo.studyWeb";
+            String query = "SELECT * FROM dbo."+maMonHoc;
             stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(query);
             while(rs.next()){
