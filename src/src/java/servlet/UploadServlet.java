@@ -6,6 +6,7 @@
 package servlet;
 
 import com.google.api.client.util.IOUtils;
+import control.FileDAO;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -41,11 +42,7 @@ public class UploadServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        try {
-//            response.getWriter().write(DriveQuickstart.showFile());
-//        } catch (GeneralSecurityException ex) {
-//            Logger.getLogger(Upload.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+//        
     }
 
     /**
@@ -83,6 +80,10 @@ public class UploadServlet extends HttpServlet {
         
         if(result){
             //xu ly co so dl
+            String link = "https://drive.google.com/open?id="+fileId;
+            model.File file = new model.File(fileName, link, category);
+            FileDAO fileDAO = new FileDAO("LapTrinhWeb", "sa", "1");
+            fileDAO.insertFile(file);
             response.getWriter().write("ok");
         }else{
             response.getWriter().write("failed");

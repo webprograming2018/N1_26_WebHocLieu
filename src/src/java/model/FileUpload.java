@@ -100,14 +100,20 @@ public class FileUpload {
 
         // Print the names and IDs for up to 10 files.
         String folderId = "";
-        if ("doccument".equals(category)) {
+        if ("DTVT".equals(category)) {
             folderId = "1gBtZ7J3tW8Cz2aWgCCCJI0CYGbShiEDW";
         }
-        if ("image".equals(category)) {
+        if ("TTDPT".equals(category)) {
             folderId = "1f6d3YsqrEzSb7Rxz1ACpm3pKWuJB613O";
         }
-        if ("Video".equals(category)) {
+        if ("CNTT".equals(category)) {
             folderId = "1yTadVe-gWK1pWRcwa6sPRwlWFNdkA-63";
+        }
+        if ("ATTT".equals(category)){
+            folderId = "1sWU_iIk76urD_cyGp4w_5JPFgiZVe3fI";
+        }
+        if ("OTHER".equals(category)){
+            folderId = "1MCyKAw9SPQMMoRHCvVF_bDQFfXNayZCQ";
         }
         File fileMetadata = new File();
         fileMetadata.setName(name);
